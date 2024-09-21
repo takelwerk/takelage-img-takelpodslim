@@ -44,8 +44,9 @@ build {
     inline = [
       "apt update",
       "apt --yes full-upgrade",
-      "apt --yes --no-install-recommends install ca-certificates libvshadow-utils podman podman-compose python3-minimal python3-apt slirp4netns uidmap",
-      "/usr/sbin/useradd --comment 'podman user to run rootless containers' --home-dir /home/podman --create-home --shell /bin/bash --user-group podman",
+      "apt --yes --no-install-recommends install ca-certificates fuse-overlayfs libvshadow-utils passt podman podman-compose runsc python3-minimal python3-apt slirp4netns uidmap",
+      "apt clean",
+      "/usr/sbin/useradd --comment 'podman user to run rootless containers' --home-dir /home/podman --create-home --shell /bin/bash --user-group podman"
     ]
   }
 
