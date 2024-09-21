@@ -41,13 +41,7 @@ build {
   ]
 
   provisioner "shell" {
-    inline = [
-      "apt update",
-      "apt --yes full-upgrade",
-      "apt --yes --no-install-recommends install ca-certificates fuse-overlayfs libvshadow-utils passt podman podman-compose runsc python3-minimal python3-apt slirp4netns uidmap",
-      "apt clean",
-      "/usr/sbin/useradd --comment 'podman user to run rootless containers' --home-dir /home/podman --create-home --shell /bin/bash --user-group podman"
-    ]
+    script = "${var.packer_template_dir}/bin/install-podman.bash"
   }
 
   post-processor "docker-tag" {

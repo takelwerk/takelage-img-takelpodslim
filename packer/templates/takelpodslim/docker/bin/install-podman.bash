@@ -1,0 +1,24 @@
+#!/bin/bash
+
+apt-get update
+apt-get --yes dist-upgrade
+apt-get --yes --no-install-recommends install \
+  ca-certificates \
+  libvshadow-utils \
+  passt \
+  podman \
+  podman-compose \
+  python3-minimal \
+  python3-apt \
+  slirp4netns \
+  uidmap
+apt-get clean
+/usr/sbin/useradd \
+  --comment 'podman user to run rootless containers' \
+  --home-dir /home/podman \
+  --create-home \
+  --shell /bin/bash \
+  --user-group \
+  podman
+su podman -c 'mkdir -p /home/podman/.config/containers'
+su podman -c 'echo -e "[storage]\ndriver = \"vfs\"\n" > /home/podman/.config/containers/storage.conf'
