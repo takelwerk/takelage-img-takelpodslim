@@ -22,3 +22,13 @@ apt-get clean
   podman
 su podman -c 'mkdir -p /home/podman/.config/containers'
 su podman -c 'echo -e "[storage]\ndriver = \"vfs\"\n" > /home/podman/.config/containers/storage.conf'
+/usr/sbin/useradd \
+  --comment 'podman mac user to run rootless containers' \
+  --gid 20 \
+  --home-dir /home/podmac \
+  --create-home \
+  --shell /bin/bash \
+  --uid 501 \
+  podmac
+su podmac -c 'mkdir -p /home/podmac/.config/containers'
+su podmac -c 'echo -e "[storage]\ndriver = \"vfs\"\n" > /home/podmac/.config/containers/storage.conf'
