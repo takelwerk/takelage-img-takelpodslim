@@ -30,5 +30,6 @@ su podman -c 'echo -e "[storage]\ndriver = \"vfs\"\n" > /home/podman/.config/con
   --shell /bin/bash \
   --uid 501 \
   podmac
+usermod --add-subuids 200000-265535 --add-subgids 200000-265535 podmac
 su podmac -c 'mkdir -p /home/podmac/.config/containers'
 su podmac -c 'echo -e "[storage]\ndriver = \"vfs\"\n" > /home/podmac/.config/containers/storage.conf'
