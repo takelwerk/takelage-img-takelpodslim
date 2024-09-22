@@ -5,6 +5,7 @@ apt-get --yes dist-upgrade
 apt-get --yes --no-install-recommends install \
   aardvark-dns \
   ca-certificates \
+  iptables \
   libvshadow-utils \
   passt \
   podman \
