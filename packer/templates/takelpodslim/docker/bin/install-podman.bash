@@ -3,6 +3,7 @@
 apt-get update
 apt-get --yes dist-upgrade
 apt-get --yes --no-install-recommends install \
+  aardvark-dns \
   ca-certificates \
   libvshadow-utils \
   passt \
