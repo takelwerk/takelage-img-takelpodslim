@@ -12,7 +12,6 @@ apt-get --yes --no-install-recommends install \
   podman-compose \
   python3-minimal \
   python3-apt \
-  slirp4netns \
   uidmap
 apt-get clean
 mkdir -p  /var/run/containers/storage
